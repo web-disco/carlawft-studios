@@ -1,0 +1,32 @@
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;700;900&display=swap');
+
+/* Custom CSS */
+*{
+  font-family: 'Roboto', sans-serif;
+}
+
+.ReactModal__Overlay .ReactModal__Content{
+  inset: unset !important;
+  width: 100%;
+  height: 100%;
+  margin: 0 !important;
+  border: none !important;
+  border-radius: 0 !important;
+}
+
+/* Tailwind CSS Setup */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  @variants hover, focus {
+    .filter-none {
+      filter: none;
+    }
+    .filter-grayscale {
+      filter: grayscale(100%);
+    }
+  }
+}

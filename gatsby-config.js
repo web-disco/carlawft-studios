@@ -7,7 +7,7 @@ require("dotenv").config({
 const agilityConfig = {
   guid: process.env.AGILITY_GUID,
   apiKey: process.env.AGILITY_API_KEY,
-  isPreview: process.env.AGILITY_API_ISPREVIEW,
+  isPreview: process.env.AGILITY_API_ISPREVIEW === "true",
 }
 
 /**
@@ -24,6 +24,7 @@ module.exports = {
     `gatsby-plugin-netlify`,
    `gatsby-plugin-image`,
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-postcss`,
     {
       //the name of the plugin
       resolve: "@agility/gatsby-source-agilitycms",
