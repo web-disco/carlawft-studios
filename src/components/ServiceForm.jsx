@@ -1,8 +1,17 @@
 import React from 'react'
 
 const ServiceForm = ({ form, handleClose }) => {
+  console.log(form)
   return (
-    <form style={{ maxWidth: '600px', margin: '0 auto' }}>
+    <form 
+      style={{ maxWidth: '600px', margin: '0 auto' }}
+      action="/thank-you" 
+      name={form.customFields.title}    
+      method="post"
+      data-netlify="true"
+      onSubmit="submit" 
+    >
+    <input type="hidden" name="form-name" value={form.customFields.title} />
     <div className="text-right mb-8">
       <button onClick={handleClose} className="text-xs uppercase font-bold">close</button>
     </div>
@@ -16,6 +25,7 @@ const ServiceForm = ({ form, handleClose }) => {
                   <input required={field.customFields.required ? true : false} type={field.customFields.type} placeholder={field.customFields.placeholder} className="form-input block w-full border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black" />
                 </label>
             )
+          break;
           case "email":
             return(
               <label className="block mb-4 text-xs uppercase font-bold" key={index}>
@@ -23,6 +33,7 @@ const ServiceForm = ({ form, handleClose }) => {
                 <input required={field.customFields.required ? true : false} type={field.customFields.type} className="form-input block w-full border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black" />
               </label>
             )
+          break;
           case "datetime-local":
             return(
               <label className="block mb-4 text-xs uppercase font-bold" key={index}>
@@ -30,6 +41,7 @@ const ServiceForm = ({ form, handleClose }) => {
                 <input required={field.customFields.required ? true : false} type={field.customFields.type} className="form-input block w-full border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black" />
               </label>
             )
+          break;
           case "select":
             const selectChoices = field.customFields.choices.split("\n")
             return(
@@ -43,6 +55,7 @@ const ServiceForm = ({ form, handleClose }) => {
               </select>
             </label>
             )
+          break;
           case "textarea":
             return(
              <label className="block mb-4 col-span-2 text-xs uppercase font-bold" key={index}>
@@ -50,6 +63,9 @@ const ServiceForm = ({ form, handleClose }) => {
               <textarea className="form-textarea block w-full border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black" />
              </label>
             )
+          break;
+          default:
+            return null
         }
       })}
     </div>
