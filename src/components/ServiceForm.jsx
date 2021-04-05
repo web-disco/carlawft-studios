@@ -1,18 +1,18 @@
 import React from "react"
 
 const ServiceForm = ({ form, handleClose }) => {
-  console.log(form)
+  const formName = JSON.stringify(form.customFields.name)
   return (
     <form
       style={{ maxWidth: "600px", margin: "0 auto" }}
-      name="contact"
+      name={formName}
       method="post"
       data-netlify="true"
       data-netlify-honeypot="bot-field"
       action="/thank-you"
     >
       <input type="hidden" name="bot-field" />
-      <input type="hidden" name="form-name" value="contact" />  
+      <input type="hidden" name="form-name" value={formName} />  
       <div className="text-right mb-8">
         <button onClick={handleClose} className="text-xs uppercase font-bold">
           close
