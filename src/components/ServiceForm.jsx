@@ -4,11 +4,11 @@ const ServiceForm = ({ form, handleClose }) => {
   const formName = form.customFields.name
   return (
     <form
-      name="recording-engineering"
+      name="recording"
       method="post"
       data-netlify="true"
     >
-      <input type="hidden" name="form-name" value="recording-engineering" />  
+      <input type="hidden" name="form-name" value="recording" />  
       <input type="text" name="name" />
       <button type="submit">submit</button>
     </form>
