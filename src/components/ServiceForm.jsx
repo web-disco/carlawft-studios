@@ -6,13 +6,11 @@ const ServiceForm = ({ form, handleClose }) => {
     <form
       style={{ maxWidth: "600px", margin: "0 auto" }}
       action="/thank-you"
-      name={form.customFields.title}
+      name={form.customFields.name}
       method="post"
       data-netlify="true"
-      onSubmit="submit"
-      netlify
     >
-      <input type="hidden" name="form-name" value={form.customFields.title} />
+      <input type="hidden" name="form-name" value={form.customFields.name} />
       <div className="text-right mb-8">
         <button onClick={handleClose} className="text-xs uppercase font-bold">
           close
