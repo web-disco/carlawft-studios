@@ -5,9 +5,9 @@ const ServiceForm = ({ form, handleClose }) => {
   return (
     <form
       style={{ maxWidth: "600px", margin: "0 auto" }}
-      // action="/thank-you"
       name={`${form.customFields.name}`}
       method="POST"
+      data-netlify-honeypot="botfield"
       data-netlify="true"
     >
       <input type="hidden" name="form-name" value={`${form.customFields.name}`} />
