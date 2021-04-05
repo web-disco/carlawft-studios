@@ -137,10 +137,19 @@ const ServiceDetails = ({ dynamicPageItem }) => {
         ariaHideApp={false}
       >
         {dynamicPageItem.customFields.form && (
-          <ServiceForm
-            form={dynamicPageItem.customFields.form}
-            handleClose={handleClose}
-          />
+          <form
+            name="recording-engineering"
+            method="post"
+            data-netlify="true"
+          >
+            <input type="hidden" name="form-name" value="recording-engineering" />  
+            <input type="text" name="name" />
+            <button type="submit">submit</button>
+          </form>
+          // <ServiceForm
+          //   form={dynamicPageItem.customFields.form}
+          //   handleClose={handleClose}
+          // />
         )}
       </Modal>
     </>
