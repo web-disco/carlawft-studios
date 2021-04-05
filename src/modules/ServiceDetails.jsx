@@ -152,6 +152,18 @@ const ServiceDetails = ({ dynamicPageItem }) => {
           </div>
         </div>
       </div>
+      <form name="test-form" method="POST" data-netlify="true">
+        <input type="hidden" name="form-name" value="test-form" />
+        <div>
+          <label>Your Email:</label>
+          <input type="email" name="email" />
+        </div>
+        <div>
+          <label>Message:</label>
+          <textarea name="message" />
+        </div>
+        <button type="submit">Send</button>
+      </form>
       <Modal
         isOpen={show}
         contentLabel="Service Form Modal"
@@ -159,24 +171,12 @@ const ServiceDetails = ({ dynamicPageItem }) => {
         shouldCloseOnOverlayClick={true}
         ariaHideApp={false}
       >
-        {dynamicPageItem.customFields.form && (
-            <form name="Test Form" method="POST" data-netlify="true">
-              <input type="hidden" name="form-name" value="Test Form" />
-              <div>
-                <label>Your Email:</label>
-                <input type="email" name="email" />
-              </div>
-              <div>
-                <label>Message:</label>
-                <textarea name="message" />
-              </div>
-              <button type="submit">Send</button>
-            </form>
+        {/* {dynamicPageItem.customFields.form && (
           // <ServiceForm
           //   form={dynamicPageItem.customFields.form}
           //   handleClose={handleClose}
           // />
-        )}
+        )} */}
       </Modal>
     </>
   )
