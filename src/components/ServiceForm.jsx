@@ -10,6 +10,7 @@ const ServiceForm = ({ form, handleClose }) => {
       method="post"
       data-netlify="true"
       onSubmit="submit"
+      netlify
     >
       <input type="hidden" name="form-name" value={form.customFields.title} />
       <div className="text-right mb-8">
@@ -31,6 +32,7 @@ const ServiceForm = ({ form, handleClose }) => {
                     {field.customFields.required ? `*` : null}
                   </span>
                   <input
+                    name={field.customFields.name}
                     required={field.customFields.required ? true : false}
                     type={field.customFields.type}
                     placeholder={field.customFields.placeholder}
@@ -38,7 +40,6 @@ const ServiceForm = ({ form, handleClose }) => {
                   />
                 </label>
               )
-              break
             case "email":
               return (
                 <label
@@ -50,13 +51,13 @@ const ServiceForm = ({ form, handleClose }) => {
                     {field.customFields.required ? `*` : null}
                   </span>
                   <input
+                    name={field.customFields.name}
                     required={field.customFields.required ? true : false}
                     type={field.customFields.type}
                     className="form-input block w-full border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black"
                   />
                 </label>
               )
-              break
             case "datetime-local":
               return (
                 <label
@@ -68,13 +69,13 @@ const ServiceForm = ({ form, handleClose }) => {
                     {field.customFields.required ? `*` : null}
                   </span>
                   <input
+                    name={field.customFields.name}
                     required={field.customFields.required ? true : false}
                     type={field.customFields.type}
                     className="form-input block w-full border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black"
                   />
                 </label>
               )
-              break
             case "select":
               const selectChoices = field.customFields.choices.split("\n")
               return (
@@ -87,6 +88,7 @@ const ServiceForm = ({ form, handleClose }) => {
                     {field.customFields.required ? `*` : null}
                   </span>
                   <select
+                    name={field.customFields.name}
                     required={field.customFields.required ? true : false}
                     className="form-select block w-full border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black"
                   >
@@ -97,7 +99,6 @@ const ServiceForm = ({ form, handleClose }) => {
                   </select>
                 </label>
               )
-              break
             case "textarea":
               return (
                 <label
@@ -108,10 +109,11 @@ const ServiceForm = ({ form, handleClose }) => {
                     {field.customFields.label}{" "}
                     {field.customFields.required ? `*` : null}
                   </span>
-                  <textarea className="form-textarea block w-full border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black" />
+                  <textarea 
+                    name={field.customFields.name}
+                    className="form-textarea block w-full border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black" />
                 </label>
               )
-              break
             default:
               return null
           }
