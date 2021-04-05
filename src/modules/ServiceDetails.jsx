@@ -13,29 +13,6 @@ const ServiceDetails = ({ dynamicPageItem }) => {
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
 
-  // const encode = values => {
-  //   return Object.keys(values)
-  //     .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(values[key]))
-  //     .join("&")
-  // }
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   fetch("/", {
-  //     method: "POST",
-  //     headers: { "Content-Type": "application/x-www-form-urlencoded" },
-  //     body: encode({
-  //       "form-name": "recording",
-  //       values: {
-  //         name: "test"
-  //       },
-  //     }),
-  //   })
-  //     .then(() => {
-  //     })
-  //     .catch(error => alert(error))
-  // }
-
   const data = useStaticQuery(graphql`
     query MyQuery {
       allAgilityService {
