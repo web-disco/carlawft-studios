@@ -48,7 +48,9 @@ const TeamMembers = ({ item }) => {
             <p className="font-black uppercase">
               {teamMember.customFields.name}
             </p>
-            <p className="text-sm text-gray-500">{teamMember.customFields.position}</p>
+            <p className="text-sm text-gray-500">
+              {teamMember.customFields.position}
+            </p>
           </div>
         ))}
       </div>

@@ -6,7 +6,7 @@ const ServiceListing = () => {
   // query for services & service categories
   const data = useStaticQuery(graphql`
     query {
-      services: allAgilityService(sort: {fields: properties___itemOrder}) {
+      services: allAgilityService(sort: { fields: properties___itemOrder }) {
         nodes {
           customFields {
             category_TextField

@@ -28,10 +28,8 @@ const ProjectListing = ({ item }) => {
   // get projects
   const projects = data.projects.nodes
 
-  if (projects.length <= 0 ){
-    return (
-      <p>projects coming soon...</p>
-    )
+  if (projects.length <= 0) {
+    return <p>projects coming soon...</p>
   }
 
   return (

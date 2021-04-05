@@ -50,86 +50,88 @@ const GlobalHeader = () => {
 
   return (
     <>
-      <header className="container mx-auto flex justify-between px-4 my-6 text-xs uppercase font-bold">
-        <div>
-          <Link to="/cart" className="text-black">
-            Cart ( 0 )
-          </Link>
-        </div>
-        <div>
-          <Link to="/" className="text-black">
-            Carlawft Studios
-          </Link>
-        </div>
-        <div>
-          <button
-            className="text-xs uppercase font-bold"
-            onClick={() => setOpen(!open)}
-          >
-            Menu
-          </button>
-        </div>
-      </header>
-      <div>
-        <div
-          className={`${
-            open ? `fixed` : `hidden`
-          } bg-gray-100 top-0 right-0 h-full w-48 md:w-96 z-50 shadow-2xl`}
-        >
-          <div className="my-6 text-right pr-4">
+      <header className="container mx-auto px-4 my-6 text-xs uppercase font-bold">
+        <div className="flex justify-between">
+          <div>
+            <Link to="/cart" className="text-black">
+              Cart ( 0 )
+            </Link>
+          </div>
+          <div>
+            <Link to="/" className="text-black">
+              Carlawft Studios
+            </Link>
+          </div>
+          <div>
             <button
-              className="text-xs uppercase font-black"
-              onClick={() => setOpen(false)}
+              className="text-xs uppercase font-bold"
+              onClick={() => setOpen(!open)}
             >
-              Close
+              Menu
             </button>
           </div>
-          <ul className="px-4">
-            {menuItems.map((menuItem, index) => (
-              <li key={index} className="uppercase text-xs font-black mb-6">
-                <Link to={menuItem.path} title={menuItem.title}>
-                  {menuItem.title}
-                </Link>
-              </li>
-            ))}
-            <ul className="flex text-sm">
-              {socials.instagram && (
-                <li className="mr-4">
-                  <a
-                    href={socials.instagram.href}
-                    title={socials.instagram.text}
-                    target={socials.instagram.target}
-                  >
-                    <GrInstagram />
-                  </a>
-                </li>
-              )}
-              {socials.facebook && (
-                <li className="mr-4">
-                  <a
-                    href={socials.facebook.href}
-                    title={socials.facebook.text}
-                    target={socials.facebook.target}
-                  >
-                    <FaFacebookF />
-                  </a>
-                </li>
-              )}
-              {socials.tikTok && (
-                <li>
-                  <a
-                    href={socials.tikTok.href}
-                    title={socials.tikTok.text}
-                    target={socials.tikTok.target}
-                  >
-                    <SiTiktok />
-                  </a>
-                </li>
-              )}
-            </ul>
-          </ul>
         </div>
-      </div>
+        <div>
+          <div
+            className={`${
+              open ? `fixed` : `hidden`
+            } bg-gray-100 top-0 right-0 h-full w-48 md:w-96 z-50 shadow-2xl`}
+          >
+            <div className="my-6 text-right pr-4">
+              <button
+                className="text-xs uppercase font-black"
+                onClick={() => setOpen(false)}
+              >
+                Close
+              </button>
+            </div>
+            <ul className="px-4">
+              {menuItems.map((menuItem, index) => (
+                <li key={index} className="uppercase text-xs font-black mb-6">
+                  <Link to={menuItem.path} title={menuItem.title}>
+                    {menuItem.title}
+                  </Link>
+                </li>
+              ))}
+              <ul className="flex text-sm">
+                {socials.instagram && (
+                  <li className="mr-4">
+                    <a
+                      href={socials.instagram.href}
+                      title={socials.instagram.text}
+                      target={socials.instagram.target}
+                    >
+                      <GrInstagram />
+                    </a>
+                  </li>
+                )}
+                {socials.facebook && (
+                  <li className="mr-4">
+                    <a
+                      href={socials.facebook.href}
+                      title={socials.facebook.text}
+                      target={socials.facebook.target}
+                    >
+                      <FaFacebookF />
+                    </a>
+                  </li>
+                )}
+                {socials.tikTok && (
+                  <li>
+                    <a
+                      href={socials.tikTok.href}
+                      title={socials.tikTok.text}
+                      target={socials.tikTok.target}
+                    >
+                      <SiTiktok />
+                    </a>
+                  </li>
+                )}
+              </ul>
+            </ul>
+          </div>
+        </div>
+      </header>
     </>
   )
 }
