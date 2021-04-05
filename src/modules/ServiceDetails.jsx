@@ -13,6 +13,11 @@ const ServiceDetails = ({ dynamicPageItem }) => {
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('submitted');
+  }
+
   const data = useStaticQuery(graphql`
     query MyQuery {
       allAgilityService {
@@ -144,7 +149,7 @@ const ServiceDetails = ({ dynamicPageItem }) => {
           >
             <input type="hidden" name="form-name" value="recording-engineering" />  
             <input type="text" name="name" />
-            <button type="submit">submit</button>
+            <button onClick={(e) => handleSubmit(e)}>submit</button>
           </form>
           // <ServiceForm
           //   form={dynamicPageItem.customFields.form}
