@@ -6,11 +6,11 @@ const ServiceForm = ({ form, handleClose }) => {
     <form
       style={{ maxWidth: "600px", margin: "0 auto" }}
       // action="/thank-you"
-      name={form.customFields.name}
-      method="post"
+      name={`${form.customFields.name}`}
+      method="POST"
       data-netlify="true"
     >
-      <input type="hidden" name="form-name" value={form.customFields.name} />
+      <input type="hidden" name="form-name" value={`${form.customFields.name}`} />
       <div className="text-right mb-8">
         <button onClick={handleClose} className="text-xs uppercase font-bold">
           close
@@ -92,7 +92,7 @@ const ServiceForm = ({ form, handleClose }) => {
                   >
                     <option value="">Select one...</option>
                     {selectChoices.map((choice, index) => (
-                      <option key={index}>{choice}</option>
+                      <option value={choice} key={index}>{choice}</option>
                     ))}
                   </select>
                 </label>
