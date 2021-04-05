@@ -5,12 +5,12 @@ const ServiceForm = ({ form, handleClose }) => {
   return (
     <form
       style={{ maxWidth: "600px", margin: "0 auto" }}
-      name={`${form.customFields.name}`}
+      name="contact"
       method="POST"
       data-netlify-honeypot="botfield"
       data-netlify="true"
     >
-      <input type="hidden" name="form-name" value={`${form.customFields.name}`} />
+      <input type="hidden" name="form-name" value="contact" />
       <div className="text-right mb-8">
         <button onClick={handleClose} className="text-xs uppercase font-bold">
           close
@@ -86,7 +86,7 @@ const ServiceForm = ({ form, handleClose }) => {
                     {field.customFields.required ? `*` : null}
                   </span>
                   <select
-                    name={field.customFields.name}
+                    name={`${field.customFields.name}[]`}
                     required={field.customFields.required ? true : false}
                     className="form-select block w-full border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black"
                   >
