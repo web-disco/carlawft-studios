@@ -13,6 +13,8 @@
   margin: 0 !important;
   border: none !important;
   border-radius: 0 !important;
+  top: 0 !important;
+  left: 0 !important;
 }
 
 /* Tailwind CSS Setup */

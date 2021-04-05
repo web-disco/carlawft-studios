@@ -7,12 +7,13 @@ import Modal from 'react-modal'
 
 const ServiceDetails = ({ dynamicPageItem }) => {
   
-
+  // open / close modal state
   const [show, setShow] = useState(false);
 
+  // open / close modal functions
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  
+
 const data = useStaticQuery(graphql`
 query MyQuery {
   allAgilityService {
@@ -53,7 +54,7 @@ const rates = service[0].linkedContent_agilityRates
       <AgilityImage image={dynamicPageItem.customFields.image} layout="fullWidth" />
       <h1 className="text-4xl font-bold my-6">{`// ${service[0].customFields.title}`}</h1>
       <div dangerouslySetInnerHTML={renderHTML(dynamicPageItem.customFields.description)} />
-      {/* Mobile Buttons */}
+      {/* Mobile Buttons Start */}
       <div className="sm:hidden my-10 grid grid-cols-2 gap-4">
         {dynamicPageItem.customFields.form && (
           <button className="bg-black text-white border-2 border-black text-sm p-2 hover:bg-white hover:text-black transition ease-in-out duration-300" onClick={handleShow}>
@@ -66,6 +67,7 @@ const rates = service[0].linkedContent_agilityRates
         </Link>
         </div>
       </div>
+      {/* Mobile Buttons End */}
       <div className="grid grid-cols-2 sm:grid-cols-3 my-6">
         {rates.length > 0 && (
           <div className="col-span-2">
