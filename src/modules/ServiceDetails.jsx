@@ -13,28 +13,28 @@ const ServiceDetails = ({ dynamicPageItem }) => {
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
 
-  const encode = values => {
-    return Object.keys(values)
-      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(values[key]))
-      .join("&")
-  }
+  // const encode = values => {
+  //   return Object.keys(values)
+  //     .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(values[key]))
+  //     .join("&")
+  // }
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({
-        "form-name": "recording",
-        values: {
-          name: "test"
-        },
-      }),
-    })
-      .then(() => {
-      })
-      .catch(error => alert(error))
-  }
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   fetch("/", {
+  //     method: "POST",
+  //     headers: { "Content-Type": "application/x-www-form-urlencoded" },
+  //     body: encode({
+  //       "form-name": "recording",
+  //       values: {
+  //         name: "test"
+  //       },
+  //     }),
+  //   })
+  //     .then(() => {
+  //     })
+  //     .catch(error => alert(error))
+  // }
 
   const data = useStaticQuery(graphql`
     query MyQuery {
@@ -152,31 +152,17 @@ const ServiceDetails = ({ dynamicPageItem }) => {
           </div>
         </div>
       </div>
-      <form name="test-form" method="POST" data-netlify="true">
-        <input type="hidden" name="form-name" value="test-form" />
-        <div>
-          <label>Your Email:</label>
-          <input type="email" name="email" />
-        </div>
-        <div>
-          <label>Message:</label>
-          <textarea name="message" />
-        </div>
-        <button type="submit">Send</button>
-      </form>
       <Modal
         isOpen={show}
         contentLabel="Service Form Modal"
-        onRequestClose={handleClose}
-        shouldCloseOnOverlayClick={true}
         ariaHideApp={false}
       >
-        {/* {dynamicPageItem.customFields.form && (
-          // <ServiceForm
-          //   form={dynamicPageItem.customFields.form}
-          //   handleClose={handleClose}
-          // />
-        )} */}
+        {dynamicPageItem.customFields.form && (
+          <ServiceForm
+            form={dynamicPageItem.customFields.form}
+            handleClose={handleClose}
+          />
+        )}
       </Modal>
     </>
   )

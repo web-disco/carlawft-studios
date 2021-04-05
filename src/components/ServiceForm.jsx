@@ -3,14 +3,17 @@ import React from "react"
 const ServiceForm = ({ form, handleClose }) => {
   const formName = form.customFields.name
   return (
-    <form
-      name="recording"
-      method="post"
-      data-netlify="true"
-    >
-      <input type="hidden" name="form-name" value="recording" />  
-      <input type="text" name="name" />
-      <button type="submit">submit</button>
+    <form name="test-form" method="POST" data-netlify="true">
+      <input type="hidden" name="form-name" value="test-form" />
+        <div>
+          <label>Your Email:</label>
+          <input type="email" name="email" />
+        </div>
+        <div>
+          <label>Message:</label>
+          <textarea name="message" />
+        </div>
+      <button type="submit">Send</button>
     </form>
     // <form
     //   style={{ maxWidth: "600px", margin: "0 auto" }}
