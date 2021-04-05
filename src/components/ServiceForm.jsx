@@ -9,7 +9,7 @@ const ServiceForm = ({ form, handleClose }) => {
       method="post"
       data-netlify="true"
       data-netlify-honeypot="bot-field"
-      action="/thank-you"
+      // action="/thank-you"
     >
       <input type="hidden" name="bot-field" />
       <input type="hidden" name="form-name" value={formName} />  
@@ -20,6 +20,7 @@ const ServiceForm = ({ form, handleClose }) => {
       </div>
       <div className="sm:grid sm:grid-cols-2 sm:gap-4">
         {form.customFields.fields.map((field, index) => {
+          console.log(field)
           switch (field.customFields.type) {
             case "text":
               return (
@@ -29,11 +30,11 @@ const ServiceForm = ({ form, handleClose }) => {
                 >
                   <span className="block mb-2">
                     {field.customFields.label}{" "}
-                    {field.customFields.required ? `*` : null}
+                    {field.customFields.required === true ? `*` : null}
                   </span>
                   <input
                     name={field.customFields.name}
-                    required={field.customFields.required ? true : false}
+                    required={field.customFields.required === true ? `*` : null}
                     type={field.customFields.type}
                     placeholder={field.customFields.placeholder}
                     className="form-input block w-full border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black"
@@ -48,11 +49,11 @@ const ServiceForm = ({ form, handleClose }) => {
                 >
                   <span className="block mb-2">
                     {field.customFields.label}{" "}
-                    {field.customFields.required ? `*` : null}
+                    {field.customFields.required === true ? `*` : null}
                   </span>
                   <input
                     name={field.customFields.name}
-                    required={field.customFields.required ? true : false}
+                    required={field.customFields.required === true ? `*` : null}
                     type={field.customFields.type}
                     className="form-input block w-full border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black"
                   />
@@ -66,11 +67,11 @@ const ServiceForm = ({ form, handleClose }) => {
                 >
                   <span className="block mb-2">
                     {field.customFields.label}{" "}
-                    {field.customFields.required ? `*` : null}
+                    {field.customFields.required === true ? `*` : null}
                   </span>
                   <input
                     name={field.customFields.name}
-                    required={field.customFields.required ? true : false}
+                    required={field.customFields.required === true ? `*` : null}
                     type={field.customFields.type}
                     className="form-input block w-full border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black"
                   />
@@ -85,11 +86,11 @@ const ServiceForm = ({ form, handleClose }) => {
                 >
                   <span className="block mb-2">
                     {field.customFields.label}{" "}
-                    {field.customFields.required ? `*` : null}
+                    {field.customFields.required === true ? `*` : null}
                   </span>
                   <select
                     name={`${field.customFields.name}[]`}
-                    required={field.customFields.required ? true : false}
+                    required={field.customFields.required === true ? `*` : null}
                     className="form-select block w-full border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black"
                   >
                     <option value="">Select one...</option>
@@ -107,9 +108,10 @@ const ServiceForm = ({ form, handleClose }) => {
                 >
                   <span className="block mb-2">
                     {field.customFields.label}{" "}
-                    {field.customFields.required ? `*` : null}
+                    {field.customFields.required === true ? `*` : null}
                   </span>
                   <textarea 
+                    required={field.customFields.required === true ? `*` : null}
                     name={field.customFields.name}
                     className="form-textarea block w-full border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black" />
                 </label>
