@@ -13,9 +13,27 @@ const ServiceDetails = ({ dynamicPageItem }) => {
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
 
+  const encode = values => {
+    return Object.keys(values)
+      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(values[key]))
+      .join("&")
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('submitted');
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({
+        "form-name": "recording",
+        values: {
+          name: "test"
+        },
+      }),
+    })
+      .then(() => {
+      })
+      .catch(error => alert(error))
   }
 
   const data = useStaticQuery(graphql`
@@ -142,15 +160,18 @@ const ServiceDetails = ({ dynamicPageItem }) => {
         ariaHideApp={false}
       >
         {dynamicPageItem.customFields.form && (
-          <form
-            name="recording-engineering"
-            method="post"
-            data-netlify="true"
-          >
-            <input type="hidden" name="form-name" value="recording-engineering" />  
-            <input type="text" name="name" />
-            <button onClick={(e) => handleSubmit(e)}>submit</button>
-          </form>
+            <form name="Test Form" method="POST" data-netlify="true">
+              <input type="hidden" name="form-name" value="Test Form" />
+              <div>
+                <label>Your Email:</label>
+                <input type="email" name="email" />
+              </div>
+              <div>
+                <label>Message:</label>
+                <textarea name="message" />
+              </div>
+              <button type="submit">Send</button>
+            </form>
           // <ServiceForm
           //   form={dynamicPageItem.customFields.form}
           //   handleClose={handleClose}
