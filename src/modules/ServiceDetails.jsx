@@ -129,6 +129,18 @@ const ServiceDetails = ({ dynamicPageItem }) => {
           </div>
         </div>
       </div>
+      <form name="new-form" method="POST" data-netlify="true">
+      <input type="hidden" name="form-name" value="new-form" />
+        <div>
+          <label>Your Email:</label>
+          <input type="email" name="email" />
+        </div>
+        <div>
+          <label>Message:</label>
+          <textarea name="message" />
+        </div>
+      <button type="submit">Send</button>
+    </form>
       <Modal
         isOpen={show}
         contentLabel="Service Form Modal"
