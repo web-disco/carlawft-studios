@@ -129,19 +129,20 @@ const ServiceDetails = ({ dynamicPageItem }) => {
           </div>
         </div>
       </div>
-      {console.log(dynamicPageItem.customFields.form.customFields.name)}
-      <form name={dynamicPageItem.customFields.form.customFields.name} method="POST" data-netlify="true">
-      <input type="hidden" name="form-name" value={dynamicPageItem.customFields.form.customFields.name} />
-        <div>
-          <label>Your Email:</label>
-          <input type="email" name="email" />
-        </div>
-        <div>
-          <label>Message:</label>
-          <textarea name="message" />
-        </div>
-      <button type="submit">Send</button>
-    </form>
+      {dynamicPageItem.customFields.form && (
+        <form name={dynamicPageItem.customFields.form.customFields.name} method="POST" data-netlify="true">
+        <input type="hidden" name="form-name" value={dynamicPageItem.customFields.form.customFields.name} />
+          <div>
+            <label>Your Email:</label>
+            <input type="email" name="email" />
+          </div>
+          <div>
+            <label>Message:</label>
+            <textarea name="message" />
+          </div>
+        <button type="submit">Send</button>
+      </form>
+      )}
       <Modal
         isOpen={show}
         contentLabel="Service Form Modal"
