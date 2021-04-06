@@ -3,8 +3,8 @@ import React from "react"
 const ServiceForm = ({ form, handleClose }) => {
   const formName = form.customFields.name
   return (
-    <form name={formName} method="POST" data-netlify="true">
-      <input type="hidden" name="form-name" value={formName} />
+    <form name="new-form" method="POST" data-netlify="true">
+      <input type="hidden" name="form-name" value="new-form" />
         <div>
           <label>Your Email:</label>
           <input type="email" name="email" />
