@@ -3,7 +3,6 @@ import { graphql, useStaticQuery, Link } from "gatsby"
 import { renderHTML } from "../agility/utils"
 import { AgilityImage } from "@agility/gatsby-image-agilitycms"
 import ServiceForm from "../components/ServiceForm"
-import Modal from "react-modal"
 
 const ServiceDetails = ({ dynamicPageItem }) => {
   // open / close modal state
@@ -14,7 +13,7 @@ const ServiceDetails = ({ dynamicPageItem }) => {
   const handleShow = () => setShow(true)
 
   // form from Agility
-  const form = dynamicPageItem.customFields.form 
+  const form = dynamicPageItem.customFields.form
 
   const data = useStaticQuery(graphql`
     query MyQuery {
@@ -133,115 +132,13 @@ const ServiceDetails = ({ dynamicPageItem }) => {
         </div>
       </div>
       {form && (
-      <div className={`${show ? `fixed` : `hidden`} bg-white w-full h-full top-0 left-0 bottom-0 right-0 flex items-center justify-center`}>
-        <form name={form.customFields.name} method="POST" data-netlify="true">
-        <input type="hidden" name="form-name" value={form.customFields.name} />
-        <div className="sm:grid sm:grid-cols-2 sm:gap-4">
-         {form.customFields.fields.map((field, index) => {
-          console.log(field)
-          switch (field.customFields.type) {
-            case "text":
-              return (
-                <label
-                  className="block mb-4 text-xs uppercase font-bold"
-                  key={index}
-                >
-                  <span className="block mb-2">
-                    {field.customFields.label}{" "}
-                    {field.customFields.required === true ? `*` : null}
-                  </span>
-                  <input
-                    name={field.customFields.name}
-                    required={field.customFields.required === true ? `*` : null}
-                    type={field.customFields.type}
-                    placeholder={field.customFields.placeholder}
-                    className="form-input block w-full border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black"
-                  />
-                </label>
-              )
-            case "email":
-              return (
-                <label
-                  className="block mb-4 text-xs uppercase font-bold"
-                  key={index}
-                >
-                  <span className="block mb-2">
-                    {field.customFields.label}{" "}
-                    {field.customFields.required === true ? `*` : null}
-                  </span>
-                  <input
-                    name={field.customFields.name}
-                    required={field.customFields.required === true ? `*` : null}
-                    type={field.customFields.type}
-                    className="form-input block w-full border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black"
-                  />
-                </label>
-              )
-            case "datetime-local":
-              return (
-                <label
-                  className="block mb-4 text-xs uppercase font-bold"
-                  key={index}
-                >
-                  <span className="block mb-2">
-                    {field.customFields.label}{" "}
-                    {field.customFields.required === true ? `*` : null}
-                  </span>
-                  <input
-                    name={field.customFields.name}
-                    required={field.customFields.required === true ? `*` : null}
-                    type={field.customFields.type}
-                    className="form-input block w-full border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black"
-                  />
-                </label>
-              )
-            case "select":
-              const selectChoices = field.customFields.choices.split("\n")
-              return (
-                <label
-                  className="block mb-4 text-xs uppercase font-bold"
-                  key={index}
-                >
-                  <span className="block mb-2">
-                    {field.customFields.label}{" "}
-                    {field.customFields.required === true ? `*` : null}
-                  </span>
-                  <select
-                    name={`${field.customFields.name}[]`}
-                    required={field.customFields.required === true ? `*` : null}
-                    className="form-select block w-full border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black"
-                  >
-                    <option value="">Select one...</option>
-                    {selectChoices.map((choice, index) => (
-                      <option value={choice} key={index}>{choice}</option>
-                    ))}
-                  </select>
-                </label>
-              )
-            case "textarea":
-              return (
-                <label
-                  className="block mb-4 col-span-2 text-xs uppercase font-bold"
-                  key={index}
-                >
-                  <span className="block mb-2">
-                    {field.customFields.label}{" "}
-                    {field.customFields.required === true ? `*` : null}
-                  </span>
-                  <textarea 
-                    required={field.customFields.required === true ? `*` : null}
-                    name={field.customFields.name}
-                    className="form-textarea block w-full border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black" />
-                </label>
-              )
-            default:
-              return null
-          }
-        })}
-      </div>
-        <button type="submit">Send</button>
-      </form>
-      </div>
+        <div
+          className={`${
+            show ? `fixed` : `hidden`
+          } bg-white w-full h-full top-0 left-0 bottom-0 right-0 overflow-y-scroll p-12 md:p-20`}
+        >
+          <ServiceForm form={form} handleClose={handleClose} />
+        </div>
       )}
     </>
   )

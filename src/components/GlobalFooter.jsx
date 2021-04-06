@@ -121,7 +121,7 @@ const GlobalFooter = () => {
               </li>
             )}
             <li>
-              <ul className="flex ml-2 sm:ml-0">
+              {/* <ul className="flex ml-2 sm:ml-0">
                 {contact.customFields.instagram && (
                   <li className="mr-4">
                     <a
@@ -155,7 +155,7 @@ const GlobalFooter = () => {
                     </a>
                   </li>
                 )}
-              </ul>
+              </ul> */}
             </li>
           </ul>
         </div>

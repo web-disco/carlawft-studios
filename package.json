@@ -1,7 +1,7 @@
 {
-  "name": "agility-gatsby-starter",
+  "name": "Carlawft Studios",
   "private": true,
-  "description": "A simplified bare-bones starter for building websites with Agility CMS & Gatsby.",
+  "description": "Website for Carlaft Studios built with Gatsby & Agility",
   "version": "2.3.4",
   "license": "MIT",
   "scripts": {
@@ -9,8 +9,7 @@
     "develop": "gatsby develop",
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",
-    "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+    "serve": "gatsby serve"
   },
   "dependencies": {
     "@agility/content-fetch": "^1.1.1",
@@ -18,6 +17,7 @@
     "@agility/gatsby-source-agilitycms": "^3.0.0",
     "@tailwindcss/forms": "^0.3.2",
     "@tailwindcss/typography": "^0.4.0",
+    "axios": "^0.21.1",
     "dotenv": "^8.1.0",
     "gatsby": "^3.2.1",
     "gatsby-image": "^3.0.0",
@@ -30,7 +30,6 @@
     "react-dom": "^17.0.1",
     "react-helmet": "^5.2.1",
     "react-icons": "^4.2.0",
-    "react-modal": "^3.12.1",
     "truncate-html": "^1.0.2"
   },
   "devDependencies": {
@@ -40,12 +39,5 @@
     "postcss": "^8.2.9",
     "prettier": "^1.18.2",
     "tailwindcss": "^2.0.4"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/agility/agility-gatsby-starter"
-  },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
   }
 }
