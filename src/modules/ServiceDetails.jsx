@@ -129,8 +129,8 @@ const ServiceDetails = ({ dynamicPageItem }) => {
           </div>
         </div>
       </div>
-      <form name="new-form" method="POST" data-netlify="true">
-      <input type="hidden" name="form-name" value="new-form" />
+      <form name={dynamicPageItem.customFields.form.customFields.name} method="POST" data-netlify="true">
+      <input type="hidden" name="form-name" value={dynamicPageItem.customFields.form.customFields.name} />
         <div>
           <label>Your Email:</label>
           <input type="email" name="email" />
