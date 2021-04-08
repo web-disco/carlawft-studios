@@ -4,7 +4,7 @@ import { renderHTML } from "../agility/utils"
 const EquipmentListing = ({ item }) => {
   const { customFields } = item
   return (
-    <div className="grid gap-4 mt-8 sm: grid-cols-2 md:grid-cols-4">
+    <div className="grid gap-4 mt-8 sm:grid-cols-2">
       <div>
         <h4 className="uppercase font-black">Audio</h4>
         <div

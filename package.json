@@ -12,12 +12,10 @@
     "serve": "gatsby serve"
   },
   "dependencies": {
-    "@agility/content-fetch": "^1.1.1",
     "@agility/gatsby-image-agilitycms": "^1.0.0",
     "@agility/gatsby-source-agilitycms": "^3.0.0",
     "@tailwindcss/forms": "^0.3.2",
     "@tailwindcss/typography": "^0.4.0",
-    "axios": "^0.21.1",
     "dotenv": "^8.1.0",
     "gatsby": "^3.2.1",
     "gatsby-image": "^3.0.0",

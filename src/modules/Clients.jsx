@@ -15,7 +15,7 @@ const Clients = ({ item }) => {
     autoplay: true,
     autoplaySpeed: 0,
     speed: 8000,
-    pauseOnHover: true,
+    pauseOnHover: false,
     cssEase: "linear",
   }
 

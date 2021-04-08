@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { graphql, useStaticQuery, Link } from "gatsby"
 import { renderHTML } from "../agility/utils"
 import { AgilityImage } from "@agility/gatsby-image-agilitycms"
-import ServiceForm from "../components/ServiceForm"
+import Form from "../components/Form"
 
 const ServiceDetails = ({ dynamicPageItem }) => {
   // open / close modal state
@@ -137,7 +137,15 @@ const ServiceDetails = ({ dynamicPageItem }) => {
             show ? `fixed` : `hidden`
           } bg-white w-full h-full top-0 left-0 bottom-0 right-0 overflow-y-scroll p-12 md:p-20`}
         >
-          <ServiceForm form={form} handleClose={handleClose} />
+          <div className="container mx-auto text-right mb-16">
+            <button
+              onClick={handleClose}
+              className="text-xs uppercase font-bold"
+            >
+              close
+            </button>
+          </div>
+          <Form form={form} />
         </div>
       )}
     </>
