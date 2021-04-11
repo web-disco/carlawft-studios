@@ -7,16 +7,16 @@ const ServiceForm = ({ form, handleClose }) => {
       method="POST"
       data-netlify="true"
       action="/thank-you"
-      className="max-w-full md:max-w-2xl mx-auto"
+      className="max-w-full md:max-w-lg mx-auto"
     >
       <input type="hidden" name="form-name" value={form.customFields.name} />
-      <div className="sm:grid sm:grid-cols-2 sm:gap-4">
+      <div className="">
         {form.customFields.fields.map((field, index) => {
           switch (field.customFields.type) {
             case "text":
               return (
                 <label
-                  className="block mb-4 text-xs uppercase font-bold"
+                  className="block mb-8 text-xs uppercase font-bold"
                   key={index}
                 >
                   <span className="block mb-2">
@@ -37,7 +37,7 @@ const ServiceForm = ({ form, handleClose }) => {
             case "email":
               return (
                 <label
-                  className="block mb-4 text-xs uppercase font-bold"
+                  className="block mb-8 text-xs uppercase font-bold"
                   key={index}
                 >
                   <span className="block mb-2">
@@ -57,7 +57,7 @@ const ServiceForm = ({ form, handleClose }) => {
             case "datetime-local":
               return (
                 <label
-                  className="block mb-4 text-xs uppercase font-bold"
+                  className="block mb-8 text-xs uppercase font-bold"
                   key={index}
                 >
                   <span className="block mb-2">
@@ -78,7 +78,7 @@ const ServiceForm = ({ form, handleClose }) => {
               const selectChoices = field.customFields.choices.split("\n")
               return (
                 <label
-                  className="block mb-4 text-xs uppercase font-bold"
+                  className="block mb-8 text-xs uppercase font-bold"
                   key={index}
                 >
                   <span className="block mb-2">
@@ -104,7 +104,7 @@ const ServiceForm = ({ form, handleClose }) => {
             case "textarea":
               return (
                 <label
-                  className="block mb-4 col-span-2 text-xs uppercase font-bold"
+                  className="block mb-8 col-span-2 text-xs uppercase font-bold"
                   key={index}
                 >
                   <span className="block mb-2">
@@ -115,6 +115,7 @@ const ServiceForm = ({ form, handleClose }) => {
                     required={
                       field.customFields.required === "true" ? `*` : null
                     }
+                    placeholder={field.customFields.placeholder}
                     name={field.customFields.name}
                     className="form-textarea block w-full border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black"
                   />

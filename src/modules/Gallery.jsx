@@ -1,10 +1,28 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
+import useSWR from "swr"
 import { AgilityImage } from "@agility/gatsby-image-agilitycms"
 import LoadingWidget from "../components/LoadingWidget"
 
 const Gallery = ({ item }) => {
   // get module fields
   const { customFields } = item
+
+  // fetcher for swr
+  const fetcher = url =>
+    fetch(url, {
+      headers: {
+        Accept: "application/json",
+        Apikey: `${process.env.GATSBY_AGILITY_API_KEY}`,
+      },
+    }).then(res => res.json())
+
+  // using swr to cache our fetch
+  const { data, error } = useSWR(
+    `https://api.aglty.io/${process.env.GATSBY_AGILITY_GUID}/fetch/gallery/${customFields.gallery.galleryid}`,
+    fetcher
+  )
+
+  console.log(data)
 
   // set up gallery
   const [gallery, setGallery] = useState([])
@@ -17,63 +35,23 @@ const Gallery = ({ item }) => {
     setVisible(prevValue => prevValue + parseInt(customFields.photosToLoad))
   }
 
-  // set up loading
-  const [loading, setLoading] = useState(true)
-
-  // set up messaging
-  const messages = {
-    error:
-      "We're sorry, we can't load the gallery at the moment. Please try again later.",
-    loading: "Loading Gallery...",
+  // if error fetching gallery
+  if (error) {
+    return (
+      <LoadingWidget message="We're sorry, we can't load the gallery at the moment. Please try again later." />
+    )
   }
 
-  // set initial message
-  const [message, setMessage] = useState(messages.loading)
-
-  // get gallery function
-  const getGallery = async () => {
-    try {
-      // fetch gallery from agility
-      const res = await fetch(
-        `https://api.aglty.io/${process.env.GATSBY_AGILITY_GUID}/fetch/gallery/${customFields.gallery.galleryid}`,
-        {
-          headers: {
-            Accept: "application/json",
-            Apikey: `${process.env.GATSBY_AGILITY_API_KEY}`,
-          },
-        }
-      )
-      // get the data
-      const data = await res.json()
-
-      // set gallery
-      setGallery(data.media)
-
-      // set loading to false
-      setLoading(false)
-    } catch (error) {
-      // log error
-      console.error(error)
-      // set loading back to true
-      setLoading(true)
-      // set message
-      setMessage(messages.error)
-    }
+  // loading gallery
+  if (!data) {
+    return <LoadingWidget message="Loading Gallery..." />
   }
 
-  // use effect to run getGallery function once on component mount
-  useEffect(() => {
-    getGallery()
-  }, [])
-
-  // if loading, show loading widget
-  if (loading) {
-    return <LoadingWidget message={message} />
-  }
+  // return gallery
   return (
     <div>
       <div className="grid grid-cols-2 gap-4">
-        {gallery.slice(0, visible).map((image, index) => (
+        {data.media.slice(0, visible).map((image, index) => (
           <AgilityImage image={image} key={index} layout="fullWidth" />
         ))}
       </div>

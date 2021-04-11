@@ -15,7 +15,6 @@ const Map = ({ lng, lat, zoom }) => {
     lat: parseFloat(lat),
     lng: parseFloat(lng),
   }
-  console.log(center)
   return (
     <div className="mt-14">
       <LoadScript googleMapsApiKey={process.env.GATSBY_GOOGLE_MAP_API_KEY}>

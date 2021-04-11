@@ -37,9 +37,6 @@ const ContactBlock = ({ item }) => {
     }
   `)
 
-  console.log(data)
-  console.log(customFields)
-
   return (
     <div>
       <div className="grid md:grid-cols-2 md:gap-16">
