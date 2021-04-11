@@ -2,9 +2,6 @@ import React, { useState } from "react"
 import FooterLinks from "./FooterLinks"
 import { graphql, useStaticQuery, Link } from "gatsby"
 import { GoChevronDown, GoChevronUp } from "react-icons/go"
-import { FaFacebookF } from "react-icons/fa"
-import { SiTiktok } from "react-icons/si"
-import { GrInstagram } from "react-icons/gr"
 
 const GlobalFooter = () => {
   const [open, setOpen] = useState(false)

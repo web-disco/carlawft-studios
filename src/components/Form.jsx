@@ -7,7 +7,7 @@ const ServiceForm = ({ form, handleClose }) => {
       method="POST"
       data-netlify="true"
       action="/thank-you"
-      style={{ maxWidth: "600px", margin: "0 auto" }}
+      className="max-w-full md:max-w-2xl mx-auto"
     >
       <input type="hidden" name="form-name" value={form.customFields.name} />
       <div className="sm:grid sm:grid-cols-2 sm:gap-4">

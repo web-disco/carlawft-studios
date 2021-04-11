@@ -10,21 +10,23 @@ const agilityConfig = {
   isPreview: process.env.AGILITY_API_ISPREVIEW === "true",
 }
 
-/**
- * Configure your Gatsby site with this file.
- *
- * See: https://www.gatsbyjs.org/docs/gatsby-config/
- */
-
 module.exports = {
   siteMetadata: {
-    title: "Agility CMS Gatsby Starter",
+    title: "Carlawft Studios",
   },
   plugins: [
     `gatsby-plugin-netlify`,
-   `gatsby-plugin-image`,
+    `gatsby-plugin-image`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-postcss`,
+    {
+      resolve: "gatsby-source-shopify-experimental",
+      options: {
+        apiKey: process.env.SHOPIFY_ADMIN_API_KEY,
+        password: process.env.SHOPIFY_ADMIN_PASSWORD,
+        storeUrl: process.env.SHOPIFY_STORE_URL,
+      },
+    },
     {
       //the name of the plugin
       resolve: "@agility/gatsby-source-agilitycms",
@@ -59,6 +61,6 @@ module.exports = {
         //the page template that will be used to render Agility CMS pages
         masterPageTemplate: "./src/AgilityPage.jsx",
       },
-    }
+    },
   ],
 }

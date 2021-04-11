@@ -85,11 +85,11 @@ const GlobalHeader = () => {
                 Close
               </button>
             </div>
-            <ul className="px-4">
+            <ul className="px-6">
               {menuItems.map((menuItem, index) => (
                 <li key={index} className="uppercase text-xs font-black mb-6">
                   <Link to={menuItem.path} title={menuItem.title}>
-                    {menuItem.title}
+                    {menuItem.menuText}
                   </Link>
                 </li>
               ))}

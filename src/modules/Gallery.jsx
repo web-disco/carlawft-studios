@@ -10,11 +10,11 @@ const Gallery = ({ item }) => {
   const [gallery, setGallery] = useState([])
 
   // set up visible images
-  const [visible, setVisible] = useState(6)
+  const [visible, setVisible] = useState(parseInt(customFields.photosToShow))
 
   // function to show more items
   const showMoreImages = () => {
-    setVisible(prevValue => prevValue + 6)
+    setVisible(prevValue => prevValue + parseInt(customFields.photosToLoad))
   }
 
   // set up loading
@@ -27,6 +27,7 @@ const Gallery = ({ item }) => {
     loading: "Loading Gallery...",
   }
 
+  // set initial message
   const [message, setMessage] = useState(messages.loading)
 
   // get gallery function
@@ -60,7 +61,7 @@ const Gallery = ({ item }) => {
     }
   }
 
-  // use effect to run getGallery component on mount
+  // use effect to run getGallery function once on component mount
   useEffect(() => {
     getGallery()
   }, [])
@@ -82,7 +83,7 @@ const Gallery = ({ item }) => {
             onClick={showMoreImages}
             className="bg-black text-white border-2 border-black text-sm mb-4 w-40 p-2 hover:bg-white hover:text-black transition ease-in-out duration-300 inline-block my-4"
           >
-            {visible >= gallery.length ? "No More Images" : "Load More"}
+            {customFields.buttonLabel}
           </button>
         </div>
       )}
