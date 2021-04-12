@@ -101,21 +101,21 @@ const GlobalFooter = () => {
             </button>
             <ul className={open ? `block sm:block` : `hidden sm:block`}>
               {contact.customFields.phone && (
-                <li className="my-2 ml-2 sm:ml-0">
+                <li className="my-3 ml-2 sm:ml-0">
                   <a href={`tel:${contact.customFields.phone}`}>
                     {contact.customFields.phone}
                   </a>
                 </li>
               )}
               {contact.customFields.email && (
-                <li className="my-2 uppercase ml-2 sm:ml-0">
+                <li className="my-3 uppercase ml-2 sm:ml-0">
                   <a href={`mailto:${contact.customFields.email}`}>
                     {contact.customFields.email}
                   </a>
                 </li>
               )}
               {contact.customFields.address && (
-                <li className="my-2 uppercase ml-2 sm:ml-0">
+                <li className="my-3 uppercase ml-2 sm:ml-0">
                   <Link to="/contact">
                     <p>{contact.customFields.address}</p>
                   </Link>
@@ -127,7 +127,7 @@ const GlobalFooter = () => {
       </div>
       <div className="bg-black text-gray-400 text-center text-xs p-4">
         <div className="flex flex-col md:flex-row md:justify-between container mx-auto px-4">
-          <p className="mb-2">
+          <p className="mb-2 md:mb-0">
             © {year} Copyright Carlawft Studios | All Rights Reserved
           </p>
           <p>
@@ -136,6 +136,7 @@ const GlobalFooter = () => {
               href="https://www.instagram.com/webdisco.digital/?hl=en"
               title="Toronto Web Development"
               target="_blank"
+              rel="noreferrer noopener"
             >
               Web Disco
             </a>
