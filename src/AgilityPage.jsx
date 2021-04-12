@@ -30,6 +30,11 @@ const AgilityPage = ({ pageContext, data }) => {
       <SEO
         title={viewModel.page.title}
         description={viewModel.page.seo.metaDescription}
+        keywords={viewModel.page.seo.metaKeywords}
+        ogImage={
+          viewModel.dynamicPageItem?.customFields?.image?.url ||
+          "set default image here"
+        }
       />
       <PreviewBar isPreview={viewModel.isPreview} />
       <div className="flex flex-col min-h-screen">

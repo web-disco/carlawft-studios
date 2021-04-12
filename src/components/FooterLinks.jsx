@@ -42,7 +42,7 @@ const FooterLinks = ({ title, links }) => {
       <div className={open ? `block sm:block` : `hidden sm:block`}>
         <ul>
           {links.map((link, index) => (
-            <li className="my-2 ml-2 sm:ml-0" key={index}>
+            <li className="my-3 ml-2 sm:ml-0" key={index}>
               {generateLink(
                 link.customFields.link.href,
                 link.customFields.link.target,

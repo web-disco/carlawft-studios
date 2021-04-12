@@ -42,7 +42,7 @@ const ContactBlock = ({ item }) => {
       <div className="grid md:grid-cols-2 md:gap-16">
         <div className="mb-16 md:mb-0">
           <p>{customFields.text}</p>
-          <ul className="flex text-xs my-6">
+          <ul className="flex text-xs my-10">
             {data.agilityWebsiteSettings.customFields.instagram && (
               <li className="mr-4">
                 <a
