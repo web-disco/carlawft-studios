@@ -14,8 +14,12 @@ const ProductListing = ({ products, category }) => {
             title={product.title}
             productType={product.productType.toLowerCase()}
             handle={product.handle}
-            image={product.images[0].gatsbyImageData}
-            subtitle={`$${product.priceRangeV2.minVariantPrice.amount}`}
+            image={product.images[0]?.gatsbyImageData}
+            subtitle={
+              product.productType === "Accessories"
+                ? `$${product.priceRangeV2.minVariantPrice.amount}`
+                : "+"
+            }
           />
         ))}
       </div>

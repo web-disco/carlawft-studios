@@ -22,11 +22,6 @@ const Gallery = ({ item }) => {
     fetcher
   )
 
-  console.log(data)
-
-  // set up gallery
-  const [gallery, setGallery] = useState([])
-
   // set up visible images
   const [visible, setVisible] = useState(parseInt(customFields.photosToShow))
 
@@ -55,7 +50,7 @@ const Gallery = ({ item }) => {
           <AgilityImage image={image} key={index} layout="fullWidth" />
         ))}
       </div>
-      {gallery.length > visible && (
+      {data.media.length > visible && (
         <div className="text-center mt-12">
           <button
             onClick={showMoreImages}

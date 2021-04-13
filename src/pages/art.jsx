@@ -1,5 +1,5 @@
 import React from "react"
-import SEO from "../components/SEO"
+import Seo from "../components/Seo"
 import GlobalHeader from "../components/GlobalHeader"
 import GlobalFooter from "../components/GlobalFooter"
 import ProductListing from "../components/ProductListing"
@@ -10,7 +10,8 @@ const Art = () => {
   const data = useStaticQuery(graphql`
     query {
       products: allShopifyProduct(
-        filter: { status: { eq: "ACTIVE" }, productType: { eq: "Art" } }
+        filter: { status: { eq: "ACTIVE" }, productType: { eq: "Accessories" } }
+        sort: { order: DESC, fields: createdAt }
       ) {
         nodes {
           title
@@ -34,7 +35,7 @@ const Art = () => {
   if (products.length <= 0) {
     return (
       <>
-        <SEO title="Art" />
+        <Seo title="Art" />
         <div className="flex flex-col min-h-screen">
           <GlobalHeader />
           <main className="flex-grow container mx-auto px-4">
@@ -48,7 +49,7 @@ const Art = () => {
 
   return (
     <>
-      <SEO title="Art" />
+      <Seo title="Art" />
       <div className="flex flex-col min-h-screen">
         <GlobalHeader />
         <main className="flex-grow container mx-auto px-4">

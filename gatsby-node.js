@@ -215,12 +215,10 @@ exports.createPages = async ({ actions, graphql }) => {
       pagePath = `/accessories`
     } else null
 
-    // get id
+    // get product id
     const id = product.id
 
-    console.log(id)
-
-    // get slug
+    // get product handle
     const slug = product.handle
 
     // create our product pages

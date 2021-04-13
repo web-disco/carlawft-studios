@@ -13,7 +13,7 @@ const settings = {
 const ProductImageSlider = ({ images, alt }) => {
   return (
     <div>
-      <Slider>
+      <Slider {...settings}>
         {images.map((image, index) => (
           <GatsbyImage key={index} image={image.gatsbyImageData} alt={alt} />
         ))}

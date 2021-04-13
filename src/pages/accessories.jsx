@@ -1,5 +1,5 @@
 import React from "react"
-import SEO from "../components/SEO"
+import Seo from "../components/Seo"
 import GlobalHeader from "../components/GlobalHeader"
 import GlobalFooter from "../components/GlobalFooter"
 import ProductListing from "../components/ProductListing"
@@ -11,6 +11,7 @@ const Accessories = () => {
     query {
       products: allShopifyProduct(
         filter: { status: { eq: "ACTIVE" }, productType: { eq: "Accessories" } }
+        sort: { order: DESC, fields: createdAt }
       ) {
         nodes {
           title
@@ -33,7 +34,7 @@ const Accessories = () => {
 
   return (
     <>
-      <SEO title="Accessories" />
+      <Seo title="Accessories" />
       <div className="flex flex-col min-h-screen">
         <GlobalHeader />
         <main className="flex-grow container mx-auto px-4">
