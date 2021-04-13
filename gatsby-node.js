@@ -183,8 +183,54 @@ exports.createResolvers = args => {
   createResolvers(resolvers)
 }
 
-const asyncForEach = async (array, callback) => {
-  for (let index = 0; index < array.length; index++) {
-    await callback(array[index], index, array)
-  }
+// creating out product pages here
+exports.createPages = async ({ actions, graphql }) => {
+  // query all active products
+  const { data } = await graphql(`
+    query {
+      allShopifyProduct(filter: { status: { eq: "ACTIVE" } }) {
+        nodes {
+          handle
+          productType
+          id
+        }
+      }
+    }
+  `)
+
+  // get products
+  const products = data.allShopifyProduct.nodes
+
+  // for each product, we'll create a page
+  products.forEach((product, index) => {
+    // set up page page
+    let pagePath
+
+    const productType = product.productType
+
+    // determine page path
+    if (productType === `Art`) {
+      pagePath = `/art`
+    } else if (productType === `Accessories`) {
+      pagePath = `/accessories`
+    } else null
+
+    // get id
+    const id = product.id
+
+    console.log(id)
+
+    // get slug
+    const slug = product.handle
+
+    // create our product pages
+    actions.createPage({
+      path: `${pagePath}/${slug}`,
+      component: require.resolve(`./src/templates/product-template.jsx`),
+      context: {
+        id,
+        productType,
+      },
+    })
+  })
 }

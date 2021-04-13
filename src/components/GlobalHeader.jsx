@@ -1,12 +1,16 @@
-import React, { useState } from "react"
+import React, { useState, useContext } from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
 import { FaFacebookF } from "react-icons/fa"
 import { SiTiktok } from "react-icons/si"
 import { GrInstagram } from "react-icons/gr"
+import { StoreContext } from "../context/store-context"
 
 const GlobalHeader = () => {
   // open/close menu
   const [open, setOpen] = useState(false)
+
+  // get checkout from context
+  const { checkout } = useContext(StoreContext)
 
   // query menu items
   const data = useStaticQuery(graphql`
@@ -54,7 +58,8 @@ const GlobalHeader = () => {
         <div className="flex justify-between">
           <div>
             <Link to="/cart" className="text-black">
-              Cart ( 0 )
+              <span className="hidden md:inline">Cart</span> ({" "}
+              {checkout.lineItems.length} )
             </Link>
           </div>
           <div>
@@ -75,7 +80,7 @@ const GlobalHeader = () => {
           <div
             className={`${
               open ? `fixed` : `hidden`
-            } bg-gray-100 top-0 right-0 h-full w-48 md:w-96 z-50 shadow-2xl`}
+            } bg-gray-100 top-0 right-0 h-full w-48 md:w-80 z-50 shadow-2xl`}
           >
             <div className="my-6 text-right pr-4">
               <button
