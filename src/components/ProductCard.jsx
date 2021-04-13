@@ -11,7 +11,7 @@ const ProductCard = ({ image, productType, subtitle, handle, title }) => {
         ) : (
           <p>no img available</p>
         )}
-        <div className="flex justify-between items-center p-2 border-2 border-black group-hover:bg-black group-hover:text-white transition ease-in-out duration-300">
+        <div className="mt-4 flex shadow-sm font-medium justify-between items-center p-2 border-2 border-black group-hover:bg-black group-hover:text-white transition ease-in-out duration-300">
           <p className="text-xs">{title}</p>
           <p className="text-xs">{subtitle}</p>
         </div>

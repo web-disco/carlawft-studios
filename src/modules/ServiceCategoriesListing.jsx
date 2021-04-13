@@ -27,7 +27,7 @@ const ServiceCategoriesListing = ({ item }) => {
   return (
     <section className="mt-12">
       <h3 className="uppercase font-black mb-4">{customFields.title}</h3>
-      <div className="grid sm:grid-cols-3 gap-4">
+      <div className="grid md:grid-cols-3 gap-4">
         {categories.map((category, index) => (
           <GridCard
             key={index}

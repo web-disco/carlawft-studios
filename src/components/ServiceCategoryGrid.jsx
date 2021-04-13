@@ -6,7 +6,7 @@ const ServiceCategoryGrid = ({ title, definition, services, category }) => {
     <div className="mb-16" id={category}>
       <h3 className="text-xl font-bold mb-2">{title}</h3>
       <p className="mb-8">{definition}</p>
-      <div className="grid gap-8 sm:grid-cols-2 ">
+      <div className="grid gap-4 sm:grid-cols-3">
         {services.map((service, index) => (
           <GridCard
             title={service.customFields.title}

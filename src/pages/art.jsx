@@ -10,7 +10,7 @@ const Art = () => {
   const data = useStaticQuery(graphql`
     query {
       products: allShopifyProduct(
-        filter: { status: { eq: "ACTIVE" }, productType: { eq: "Accessories" } }
+        filter: { status: { eq: "ACTIVE" }, productType: { eq: "Art" } }
         sort: { order: DESC, fields: createdAt }
       ) {
         nodes {

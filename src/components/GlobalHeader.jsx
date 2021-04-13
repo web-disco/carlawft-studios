@@ -43,6 +43,13 @@ const GlobalHeader = () => {
           }
         }
       }
+      categories: allAgilityServiceCategory {
+        nodes {
+          customFields {
+            category
+          }
+        }
+      }
     }
   `)
 
@@ -51,6 +58,9 @@ const GlobalHeader = () => {
 
   // get socials
   const socials = data.socials.customFields
+
+  // get categories
+  const categories = data.categories.nodes
 
   return (
     <>
@@ -91,13 +101,34 @@ const GlobalHeader = () => {
               </button>
             </div>
             <ul className="px-6">
-              {menuItems.map((menuItem, index) => (
-                <li key={index} className="uppercase text-xs font-black mb-6">
-                  <Link to={menuItem.path} title={menuItem.title}>
-                    {menuItem.menuText}
-                  </Link>
-                </li>
-              ))}
+              {menuItems.map((menuItem, index) => {
+                return (
+                  <li key={index} className="uppercase text-sm font-black mb-6">
+                    <Link to={menuItem.path} title={menuItem.title}>
+                      {menuItem.menuText}
+                    </Link>
+                    {menuItem.title === "Services" ? (
+                      <ul className="ml-2">
+                        {categories.map((category, index) => (
+                          <li
+                            className="text-xs my-2 font-medium"
+                            key={index}
+                            onClick={() => setOpen(false)}
+                            onKeyDown={() => setOpen(false)}
+                          >
+                            <Link
+                              to={`/services/#${category.customFields.category}`}
+                              title={`${category.customFields.category} Services`}
+                            >
+                              {category.customFields.category}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    ) : null}
+                  </li>
+                )
+              })}
               <ul className="flex text-sm">
                 {socials.instagram && (
                   <li className="mr-4">

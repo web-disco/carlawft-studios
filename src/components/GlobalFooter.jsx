@@ -125,7 +125,7 @@ const GlobalFooter = () => {
           </div>
         </div>
       </div>
-      <div className="bg-black text-gray-400 text-center text-xs p-4">
+      <div className="bg-black text-gray-400 text-center text-xs p-4 font-light">
         <div className="flex flex-col md:flex-row md:justify-between container mx-auto px-4">
           <p className="mb-2 md:mb-0">
             © {year} Copyright Carlawft Studios | All Rights Reserved
