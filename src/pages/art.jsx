@@ -1,5 +1,5 @@
 import React from "react"
-import Seo from "../components/Seo"
+import SEO from "../components/SEO"
 import GlobalHeader from "../components/GlobalHeader"
 import GlobalFooter from "../components/GlobalFooter"
 import ProductListing from "../components/ProductListing"
@@ -35,7 +35,7 @@ const Art = () => {
   if (products.length <= 0) {
     return (
       <>
-        <Seo title="Art" />
+        <SEO title="Art" />
         <div className="flex flex-col min-h-screen">
           <GlobalHeader />
           <main className="flex-grow container mx-auto px-4">
@@ -49,7 +49,7 @@ const Art = () => {
 
   return (
     <>
-      <Seo title="Art" />
+      <SEO title="Art" />
       <div className="flex flex-col min-h-screen">
         <GlobalHeader />
         <main className="flex-grow container mx-auto px-4">

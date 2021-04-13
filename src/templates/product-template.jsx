@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
-import Seo from "../components/Seo"
+import SEO from "../components/SEO"
 import GlobalHeader from "../components/GlobalHeader"
 import GlobalFooter from "../components/GlobalFooter"
 import ReccomendedProducts from "../components/ReccomendedProducts"
@@ -12,7 +12,7 @@ const Product = ({ data: { product, reccomended } }) => {
   const hasMultipleImages = product.images.length > 1
   return (
     <>
-      <Seo title={`${product.title}`} />
+      <SEO title={`${product.title}`} />
       <div className="flex flex-col min-h-screen">
         <GlobalHeader />
         <main className="flex-grow container mx-auto px-4">

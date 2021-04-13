@@ -7,7 +7,7 @@ import Layout from "./components/Layout"
 import PreviewBar from "./components/PreviewBar"
 import GlobalHeader from "./components/GlobalHeader"
 import GlobalFooter from "./components/GlobalFooter"
-import Seo from "./components/Seo"
+import SEO from "./components/SEO"
 
 //Our query to get the our page data and check for a dynamic page item (agilityItem)
 export const query = graphql`
@@ -27,7 +27,7 @@ const AgilityPage = ({ pageContext, data }) => {
   const viewModel = agilityUtils.buildPageViewModel({ pageContext, data })
   return (
     <Layout test={true}>
-      <Seo
+      <SEO
         title={viewModel.page.title}
         description={viewModel.page.seo.metaDescription}
         keywords={viewModel.page.seo.metaKeywords}
