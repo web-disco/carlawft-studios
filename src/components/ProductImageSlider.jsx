@@ -12,13 +12,11 @@ const settings = {
 
 const ProductImageSlider = ({ images, alt }) => {
   return (
-    <div>
-      <Slider {...settings}>
-        {images.map((image, index) => (
-          <GatsbyImage key={index} image={image.gatsbyImageData} alt={alt} />
-        ))}
-      </Slider>
-    </div>
+    <Slider {...settings}>
+      {images.map((image, index) => (
+        <GatsbyImage key={index} image={image.gatsbyImageData} alt={alt} />
+      ))}
+    </Slider>
   )
 }
 

@@ -6,7 +6,7 @@ const ReccomendedProducts = ({ reccomended }) => {
   return (
     <section className="mt-8">
       <h3 className="uppercase font-black mb-4 text-sm">You May Also Like</h3>
-      <div className="grid md:grid-cols-3 gap-4">
+      <div className="grid sm:grid-cols-3 gap-4">
         {reccomended.nodes.map((product, index) => (
           <ProductCard
             key={index}

@@ -16,8 +16,8 @@ const Product = ({ data: { product, reccomended } }) => {
       <div className="flex flex-col min-h-screen">
         <GlobalHeader />
         <main className="flex-grow container mx-auto px-4">
-          <section className="grid md:grid-cols-2 gap-4 mt-6">
-            <div>
+          <section className="grid sm:grid-cols-2 gap-4 mt-6">
+            <div className="overflow-hidden">
               {hasImages &&
                 (hasMultipleImages ? (
                   <ProductImageSlider
