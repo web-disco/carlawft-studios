@@ -1,7 +1,7 @@
 import React from "react"
 import { Helmet } from "react-helmet"
 
-const Seo = ({ title, description, keywords, ogImage }) => {
+const SEO = ({ title, description, keywords, ogImage }) => {
   return (
     <Helmet
       title={`${title}  | Carlawft Studios`}
@@ -62,4 +62,4 @@ const Seo = ({ title, description, keywords, ogImage }) => {
   )
 }
 
-export default Seo
+export default SEO
