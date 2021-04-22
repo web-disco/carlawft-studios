@@ -34,14 +34,15 @@ const Accessories = () => {
 
   return (
     <>
-      <SEO title="Accessories" />
+      <p>hi</p>
+      {/* <SEO title="Accessories" />
       <div className="flex flex-col min-h-screen">
         <GlobalHeader />
         <main className="flex-grow container mx-auto px-4">
           <ProductListing products={products} category="Accessories" />
         </main>
         <GlobalFooter />
-      </div>
+      </div> */}
     </>
   )
 }

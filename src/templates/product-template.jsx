@@ -13,7 +13,8 @@ const Product = ({ data: { product, reccomended } }) => {
   const hasMultipleImages = product.images.length > 1
   return (
     <>
-      <SEO title={`${product.title}`} />
+      <p>hi</p>
+      {/* <SEO title={`${product.title}`} />
       <div className="flex flex-col min-h-screen">
         <GlobalHeader />
         <main className="flex-grow container mx-auto px-4">
@@ -47,7 +48,7 @@ const Product = ({ data: { product, reccomended } }) => {
           )}
         </main>
         <GlobalFooter />
-      </div>
+      </div> */}
     </>
   )
 }

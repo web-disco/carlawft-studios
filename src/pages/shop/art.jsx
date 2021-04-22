@@ -32,31 +32,21 @@ const Art = () => {
 
   const products = data.products.nodes
 
-  if (products.length <= 0) {
-    return (
-      <>
-        <SEO title="Art" />
-        <div className="flex flex-col min-h-screen">
-          <GlobalHeader />
-          <main className="flex-grow container mx-auto px-4">
-            <p>No Products Available...</p>
-          </main>
-          <GlobalFooter />
-        </div>
-      </>
-    )
-  }
-
   return (
     <>
-      <SEO title="Art" />
+      <p>hi</p>
+      {/* <SEO title="Art" />
       <div className="flex flex-col min-h-screen">
         <GlobalHeader />
         <main className="flex-grow container mx-auto px-4">
-          <ProductListing products={products} category="Art" />
+          {products.length >= 0 ? (
+            <ProductListing products={products} category="Art" />
+          ) : (
+            <p>No products available...</p>
+          )}
         </main>
         <GlobalFooter />
-      </div>
+      </div> */}
     </>
   )
 }

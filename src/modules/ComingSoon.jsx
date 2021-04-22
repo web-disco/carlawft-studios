@@ -22,8 +22,6 @@ const ComingSoon = ({ item }) => {
     }
   `)
 
-  console.log(customFields)
-
   return (
     <div className="grid place-content-center h-screen">
       <Link to="/">
