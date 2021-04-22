@@ -202,28 +202,18 @@ exports.createPages = async ({ actions, graphql }) => {
   const products = data.allShopifyProduct.nodes
 
   // for each product, we'll create a page
-  products.forEach((product, index) => {
-    // set up page page
-    let pagePath
-
-    const productType = product.productType
-
-    // determine page path
-    if (productType === `Art`) {
-      pagePath = `/art`
-    } else if (productType === `Accessories`) {
-      pagePath = `/accessories`
-    } else null
-
+  products.forEach(product => {
     // get product id
     const id = product.id
+
+    const productType = product.productType
 
     // get product handle
     const slug = product.handle
 
     // create our product pages
     actions.createPage({
-      path: `${pagePath}/${slug}`,
+      path: `products/${slug}`,
       component: require.resolve(`./src/templates/product-template.jsx`),
       context: {
         id,

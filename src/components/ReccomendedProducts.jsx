@@ -2,7 +2,6 @@ import React from "react"
 import ProductCard from "../components/ProductCard"
 
 const ReccomendedProducts = ({ reccomended }) => {
-  console.log(reccomended)
   return (
     <section className="mt-8">
       <h3 className="uppercase font-black mb-4 text-sm">You May Also Like</h3>

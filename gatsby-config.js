@@ -28,6 +28,15 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-theme-shopify-manager`,
+      options: {
+        shopName: process.env.SHOPIFY_STORE_NAME,
+        accessToken: process.env.GATSBY_STOREFRONT_ACCESS_TOKEN,
+        shouldConfigureSourcePlugin: false,
+        shouldWrapRootElementWithProvider: true,
+      },
+    },
+    {
       //the name of the plugin
       resolve: "@agility/gatsby-source-agilitycms",
       //the options for our plugin

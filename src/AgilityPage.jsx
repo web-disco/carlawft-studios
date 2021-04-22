@@ -38,14 +38,14 @@ const AgilityPage = ({ pageContext, data }) => {
       />
       <PreviewBar isPreview={viewModel.isPreview} />
       <div className="flex flex-col min-h-screen">
-        <GlobalHeader
+        {/* <GlobalHeader
           languageCode={viewModel.languageCode}
           isMultiLanguage={viewModel.isMultiLanguage}
-        />
+        /> */}
         <main className="flex-grow container mx-auto px-4">
           <AgilityPageTemplate {...viewModel} />
         </main>
-        <GlobalFooter />
+        {/* <GlobalFooter /> */}
       </div>
     </Layout>
   )

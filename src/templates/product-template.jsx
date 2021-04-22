@@ -6,6 +6,7 @@ import GlobalHeader from "../components/GlobalHeader"
 import GlobalFooter from "../components/GlobalFooter"
 import ReccomendedProducts from "../components/ReccomendedProducts"
 import ProductImageSlider from "../components/ProductImageSlider"
+import ProductForm from "../components/ProductForm"
 
 const Product = ({ data: { product, reccomended } }) => {
   const hasImages = product.images.length > 0
@@ -33,7 +34,13 @@ const Product = ({ data: { product, reccomended } }) => {
                   </div>
                 ))}
             </div>
-            <div>product details</div>
+            <div className="mt-4">
+              <h1 className="text-2xl font-black uppercase mb-2">
+                {product.title}
+              </h1>
+              <h3>$ {product.priceRangeV2.maxVariantPrice.amount}</h3>
+              <ProductForm product={product} />
+            </div>
           </section>
           {reccomended.nodes.length >= 1 && (
             <ReccomendedProducts reccomended={reccomended} />
@@ -52,6 +59,7 @@ export const query = graphql`
     product: shopifyProduct(id: { eq: $id }) {
       title
       description
+      shopifyId
       images {
         gatsbyImageData(width: 1000, height: 1000, layout: FULL_WIDTH)
       }

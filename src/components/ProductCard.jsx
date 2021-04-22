@@ -5,7 +5,7 @@ import { Link } from "gatsby"
 const ProductCard = ({ image, productType, subtitle, handle, title }) => {
   return (
     <div className="group cursor-pointer mb-4 sm:mb-0">
-      <Link to={`/${productType}/${handle}`}>
+      <Link to={`/products/${handle}`}>
         {image ? (
           <GatsbyImage image={image} alt={title} layout="fullWidth" />
         ) : (
