@@ -1,5 +1,6 @@
 import React from "react"
-import { Link, ustStaticQuery, graphql, useStaticQuery } from "gatsby"
+import { Link, graphql, useStaticQuery } from "gatsby"
+import { renderHTML } from "../agility/utils"
 
 const ComingSoon = ({ item }) => {
   // get module fields
@@ -21,7 +22,8 @@ const ComingSoon = ({ item }) => {
     }
   `)
 
-  console.log(data)
+  console.log(customFields)
+
   return (
     <div className="grid place-content-center h-screen">
       <Link to="/">
@@ -31,7 +33,11 @@ const ComingSoon = ({ item }) => {
           className="w-44 mx-auto"
         />
       </Link>
-      <ul className="mt-6 flex justify-items-center text-xs font-black uppercase">
+      <div
+        className="text-center mt-4"
+        dangerouslySetInnerHTML={renderHTML(customFields.text)}
+      />
+      <ul className="mt-6 flex justify-items-center text-xs font-black uppercase tracking-wider">
         <li className="mx-4">
           <a href={`tel:${data.contact.customFields.phone}`}>Phone</a>
         </li>
