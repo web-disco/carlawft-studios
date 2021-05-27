@@ -4,6 +4,7 @@ import { format } from "date-fns"
 const ServiceForm = ({ form, handleClose }) => {
   // set up date for formatting
   const [date, setDate] = useState("")
+  const [sessionLength, setSessionLength] = useState("")
   return (
     <form
       name={form.customFields.name}
@@ -94,8 +95,7 @@ const ServiceForm = ({ form, handleClose }) => {
                     {field.customFields.required === "true" ? `*` : null}
                   </span>
                   <select
-                    onChange={e => console.log(e.target.value)}
-                    name={`${field.customFields.name}[]`}
+                    onChange={e => setSessionLength(e.target.value)}
                     required={
                       field.customFields.required === "true" ? `*` : null
                     }
@@ -108,6 +108,12 @@ const ServiceForm = ({ form, handleClose }) => {
                       </option>
                     ))}
                   </select>
+                  <input
+                    hidden
+                    type="text"
+                    name={`${field.customFields.name}`}
+                    defaultValue={sessionLength}
+                  />
                 </label>
               )
             case "textarea":
