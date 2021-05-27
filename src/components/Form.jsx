@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { format } from "date-fns"
 
 const ServiceForm = ({ form, handleClose }) => {
-  const [date, setDate] = useState(null)
+  const [date, setDate] = useState("")
   console.log(date)
   return (
     <form
@@ -17,6 +17,7 @@ const ServiceForm = ({ form, handleClose }) => {
         {form.customFields.fields.map((field, index) => {
           switch (field.customFields.type) {
             case "text":
+              console.log(index)
               return (
                 <label
                   className="block mb-8 text-xs uppercase font-bold"
@@ -59,25 +60,28 @@ const ServiceForm = ({ form, handleClose }) => {
               )
             case "datetime-local":
               return (
-                <label
-                  className="block mb-8 text-xs uppercase font-bold"
-                  key={index}
-                >
-                  <span className="block mb-2">
-                    {field.customFields.label}{" "}
-                    {field.customFields.required === "true" ? `*` : null}
-                  </span>
-                  <input
-                    onChange={e =>
-                      setDate(format(new Date(e.target.value), "PPPPpp"))
-                    }
-                    required={
-                      field.customFields.required === "true" ? `*` : null
-                    }
-                    type={field.customFields.type}
-                    className="form-input block w-full border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black"
-                  />
-                </label>
+                <>
+                  <label
+                    className="block mb-8 text-xs uppercase font-bold"
+                    key={index}
+                  >
+                    <span className="block mb-2">
+                      {field.customFields.label}{" "}
+                      {field.customFields.required === "true" ? `*` : null}
+                    </span>
+                    <input
+                      onChange={e =>
+                        setDate(format(new Date(e.target.value), "PPPPp"))
+                      }
+                      required={
+                        field.customFields.required === "true" ? `*` : null
+                      }
+                      type={field.customFields.type}
+                      className="form-input block w-full border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black"
+                    />
+                    <input hidden type="text" name="date" defaultValue={date} />
+                  </label>
+                </>
               )
             case "select":
               const selectChoices = field.customFields.choices.split("\n")
@@ -130,7 +134,6 @@ const ServiceForm = ({ form, handleClose }) => {
               return null
           }
         })}
-        <input hidden type="text" name="date" value={date} />
       </div>
       <button
         type="submit"
