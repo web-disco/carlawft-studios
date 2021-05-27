@@ -3,6 +3,7 @@ import { format } from "date-fns"
 
 const ServiceForm = ({ form, handleClose }) => {
   const [date, setDate] = useState(null)
+  console.log(date)
   return (
     <form
       name={form.customFields.name}
@@ -70,8 +71,6 @@ const ServiceForm = ({ form, handleClose }) => {
                     onChange={e =>
                       setDate(format(new Date(e.target.value), "PPPPpp"))
                     }
-                    value={date}
-                    name={field.customFields.name}
                     required={
                       field.customFields.required === "true" ? `*` : null
                     }
@@ -131,6 +130,7 @@ const ServiceForm = ({ form, handleClose }) => {
               return null
           }
         })}
+        <input hidden type="text" name="date" value={date} />
       </div>
       <button
         type="submit"
