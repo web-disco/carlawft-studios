@@ -34,8 +34,7 @@ const Art = () => {
 
   return (
     <>
-      <p>hi</p>
-      {/* <SEO title="Art" />
+      <SEO title="Art" />
       <div className="flex flex-col min-h-screen">
         <GlobalHeader />
         <main className="flex-grow container mx-auto px-4">
@@ -46,7 +45,7 @@ const Art = () => {
           )}
         </main>
         <GlobalFooter />
-      </div> */}
+      </div>
     </>
   )
 }

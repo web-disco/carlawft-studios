@@ -9,17 +9,21 @@ import ProductImageSlider from "../components/ProductImageSlider"
 import ProductForm from "../components/ProductForm"
 
 const Product = ({ data: { product, reccomended } }) => {
+  // has images
   const hasImages = product.images.length > 0
+  // has multiple images for slider
   const hasMultipleImages = product.images.length > 1
+
+  console.log(product)
+
   return (
     <>
-      <p>hi</p>
-      {/* <SEO title={`${product.title}`} />
+      <SEO title={`${product.title}`} />
       <div className="flex flex-col min-h-screen">
         <GlobalHeader />
         <main className="flex-grow container mx-auto px-4">
-          <section className="grid sm:grid-cols-2 gap-4 mt-6">
-            <div className="overflow-hidden">
+          <section className="grid md:grid-cols-3 gap-4 mt-6">
+            <div className="overflow-hidden md:col-span-2">
               {hasImages &&
                 (hasMultipleImages ? (
                   <ProductImageSlider
@@ -35,12 +39,13 @@ const Product = ({ data: { product, reccomended } }) => {
                   </div>
                 ))}
             </div>
-            <div className="mt-4">
+            <div className="">
               <h1 className="text-2xl font-black uppercase mb-2">
                 {product.title}
               </h1>
               <h3>$ {product.priceRangeV2.maxVariantPrice.amount}</h3>
               <ProductForm product={product} />
+              <p className="text-sm">{product.description}</p>
             </div>
           </section>
           {reccomended.nodes.length >= 1 && (
@@ -48,7 +53,7 @@ const Product = ({ data: { product, reccomended } }) => {
           )}
         </main>
         <GlobalFooter />
-      </div> */}
+      </div>
     </>
   )
 }
