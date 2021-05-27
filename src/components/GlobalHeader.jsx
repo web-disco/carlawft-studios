@@ -9,6 +9,8 @@ const GlobalHeader = () => {
   // get cart
   const cart = useCart()
 
+  console.log(cart)
+
   // open/close menu
   const [open, setOpen] = useState(false)
 
@@ -83,7 +85,7 @@ const GlobalHeader = () => {
           <div>
             <Link to="/cart" className="text-black">
               <span className="hidden md:inline">Cart</span> ({" "}
-              {cart.lineItems.length} )
+              {cart?.lineItems.length || 0} )
             </Link>
           </div>
           <div className="flex-1">
