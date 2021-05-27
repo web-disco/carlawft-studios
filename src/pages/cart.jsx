@@ -33,7 +33,7 @@ const Cart = () => {
         <GlobalHeader />
         <main className="flex-grow container mx-auto px-4">
           <h1 className="text-4xl font-bold my-6 uppercase">// Your Cart</h1>
-          {cart.lineItems.length > 0 ? (
+          {cart?.lineItems.length > 0 ? (
             <>
               <table className="table-auto border-collapse w-full">
                 <thead className="">
