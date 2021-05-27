@@ -2,8 +2,8 @@ import React, { useState } from "react"
 import { format } from "date-fns"
 
 const ServiceForm = ({ form, handleClose }) => {
+  // set up date for formatting
   const [date, setDate] = useState("")
-  console.log(date)
   return (
     <form
       name={form.customFields.name}
@@ -17,7 +17,6 @@ const ServiceForm = ({ form, handleClose }) => {
         {form.customFields.fields.map((field, index) => {
           switch (field.customFields.type) {
             case "text":
-              console.log(index)
               return (
                 <label
                   className="block mb-8 text-xs uppercase font-bold"
@@ -84,7 +83,7 @@ const ServiceForm = ({ form, handleClose }) => {
                 </>
               )
             case "select":
-              const selectChoices = field.customFields.choices.split("\n")
+              const selectChoices = field.customFields.choices.split("\r\n")
               return (
                 <label
                   className="block mb-8 text-xs uppercase font-bold"
@@ -95,6 +94,7 @@ const ServiceForm = ({ form, handleClose }) => {
                     {field.customFields.required === "true" ? `*` : null}
                   </span>
                   <select
+                    onChange={e => console.log(e.target.value)}
                     name={`${field.customFields.name}[]`}
                     required={
                       field.customFields.required === "true" ? `*` : null
